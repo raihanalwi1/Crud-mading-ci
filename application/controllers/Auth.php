@@ -24,8 +24,9 @@ class Auth extends CI_Controller {
         } else {
             $username = $this->input->post('username');
             $password = $this->input->post('password');
+            $is_active = $this->input->post('is_active');
             
-            $user = $this->login_model->check_login($username, $password);
+            $user = $this->login_model->check_login($username, $password, $is_active);
 
             if ($user) {
                 // Login berhasil, simpan data pengguna ke session
@@ -41,6 +42,7 @@ class Auth extends CI_Controller {
 
     public function logout() {
         // Hapus data pengguna dari session
+        
         $this->session->unset_userdata('user');
         redirect('index.php/auth');
     }

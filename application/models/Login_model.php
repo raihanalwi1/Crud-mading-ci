@@ -6,9 +6,10 @@ class Login_model extends CI_Model {
         $this->load->database();
     }
 
-    public function check_login($username, $password) {
+    public function check_login($username, $password, $is_active) {
         $this->db->where('username', $username);
         $this->db->where('password', $password);
+        $this->db->where('is_active', $is_active);
         $query = $this->db->get('user');
         return $query->row_array();
     }

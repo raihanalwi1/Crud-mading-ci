@@ -57,6 +57,7 @@
 
     <?php echo form_open('index.php/auth/process_login'); ?>
         <div>
+            <input type="hidden" name="is_active" id="is_active" value="1">
             <label for="username">Username:</label>
             <input type="text" name="username" id="username" required>
         </div>
